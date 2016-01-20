@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
- get '/one' => 'employees#worker'
+ get '/one' => 'employees#single'
 
  get '/' => 'employees#index'
  get '/index' => 'employees#index'
 
- # get '/employee/:id/edit' => 'employees#edit'
- # patch '/employee/:id' => 'employees#update'
+ get '/employees/:id/edit' => 'employees#edit'
+ patch '/employees/:id/' => 'employees#update'
 
- # get '/employee/new' => 'employees#new'
- # post '/employee/:id' => 'employees#create'
+ get '/employees/new' => 'employees#new'
+ post '/employees' => 'employees#create'
 
- get '/employee/:id' => 'employees#show'
+ get '/employees/:id' => 'employees#show'
 
- # get '/employee/:id' => 'employees#destroy'
+ delete '/employees/:id' => 'employees#destroy'
 end

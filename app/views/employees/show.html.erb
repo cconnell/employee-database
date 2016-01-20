@@ -1,11 +1,13 @@
-#show attributes for each employee, link to home, edit, and delete options
+<h3><%= @employee.full_name %></h3>
+<h3><%= @employee.email %></h3>
+<h3><%= @employee.job_title %></h3>
+<h3><%= @employee.salary %></h3>
+<h3><%= @employee.japan_prefix %></h3>
+<h3><%= @employee.gender %></h3>
+<h3><%= @employee.updated_at %></h3>
 
-
-<h3><a href="/employee/:id"><%= worker.full_name %></a></h3>
-<h3><%= worker.email %></h3>
-<h3><%= worker.job_title %></h3>
-<h3><%= worker.salary %></h3>
-<h3><%= worker.japan_prefix %></h3>
-<h3><%= worker.gender %></h3>
-<h3><%= worker.updated_at %></h3>
-<% end %>
+<div>
+<%= link_to "Edit", "/employees/#{@employee.id}/edit" %>
+<%= link_to "Home", "/" %>
+<%= link_to "Delete", "/employees/#{@employee.id}", method: :delete %>
+</div>

@@ -1,27 +1,59 @@
 class EmployeesController < ApplicationController
 
   def single
-    @worker = Employee.first  
+    @employee = Employee.first  
   end
 
   def index
-    @workers = Employee.all
+    @employees = Employee.all
   end
 
   def edit
-  
+    @employee = Employee.find(params[:id])
   end
   
+  def update
+    @employee = Employee.find(params[:id])
+
+    @employee.update ({
+                        first_name: params[:first_name],last_name: params[:last_name],
+                        job_title: params[:job_title],
+                        salary: params[:salary],
+                        phone_number: params[:phone_number],
+                        gender: params[:gender]
+
+      })
+
+    redirect_to "/employees/#{@employee[:id]}"
+
+  end
+
   def show
-    @worker = Employee.find(params[:id])
+    @employee = Employee.find(params[:id])
     
   end
 
-  def delete
-    
+  def destroy
+    @employee = Employee.find(params[:id])
+    @employee.destroy
+
+    redirect_to "/"
+
   end
 
   def create
+    @employee = Employee.create
+
+    @employee.update ({
+                        first_name: params[:first_name],last_name: params[:last_name],
+                        job_title: params[:job_title],
+                        salary: params[:salary],
+                        phone_number: params[:phone_number],
+                        gender: params[:gender]
+
+      })
+
+    redirect_to "/employees/#{@employee[:id]}"
 
   end
 
