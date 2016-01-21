@@ -1,7 +1,7 @@
 class Employee < ActiveRecord::Base
   
   def full_name
-    full_name = "#{first_name} #{last_name}"
+    full_name = "#{first_name} #{middle_name} #{last_name}"
   end
 
   def time_updated

@@ -8,10 +8,15 @@
   </div>
 
   <div>
-    <%= label_tag :last_name %>
-    <%= text_field_tag :last_name, @employee.last_name %>
+    <%= label_tag :middle_name %>
+    <%= text_field_tag :middle_name %>
   </div>
 
+  <div>
+    <%= label_tag :last_name %>
+    <%= text_field_tag :last_name, @employee.last_name %>
+
+  </div>
   <div>
     <%= label_tag :email %>
     <%= text_field_tag :email, @employee.email %>
@@ -35,6 +40,11 @@
   <div>
     <%= label_tag :gender %>
     <%= text_field_tag :gender, @employee.gender %>
+  </div>
+
+  <div>
+  <%= label_tag :bio %>
+  <%= text_area_tag :bio, @employee.bio %>
   </div>
 
     <%= submit_tag "Update employee record" %>
