@@ -13,6 +13,10 @@ class EmployeesController < ApplicationController
     end
   end
 
+  def
+  end
+    
+  end
   def edit
     @employee = Employee.find(params[:id])
   end
