@@ -1,11 +1,17 @@
-<h3><%= @employee.full_name %></h3>
-<h3><%= @employee.email %></h3>
-<h3><%= @employee.job_title %></h3>
-<h3><%= @employee.salary %></h3>
-<h3><%= @employee.japan_prefix %></h3>
-<h3><%= @employee.gender %></h3>
-<h3><%= @employee.bio %></h3>
-<h3><%= @employee.updated_at %></h3>
+<h3>Name: <%= @employee.full_name %></h3>
+<h3>Gender: <%= @employee.gender %></h3>
+<h3>Job Title: <%= @employee.job_title %></h3>
+<h3>Salary: <%= @employee.salary %></h3>
+<h3>Phone: <%= @employee.japan_prefix %></h3>
+<h3>Email: <%= @employee.email %></h3>
+<h2>Groups</h2>
+  <ul>
+    <% @groups.each do |group| %>
+      <li><%= group.name %></li>
+    <% end %>
+  </ul>
+<h3>Bio: <%= @employee.bio %></h3>
+<h3>Last updated: <%= @employee.updated_at %></h3>
 
 <div>
 <%= link_to "Edit", "/employees/#{@employee.id}/edit" %>

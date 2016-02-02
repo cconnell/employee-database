@@ -6,6 +6,11 @@ class EmployeesController < ApplicationController
 
   def index
     @employees = Employee.all
+
+    if params[:group]
+      @employees = Group.find_by(name: params[:group]).employees
+      @employees = @employees.where(user_id: current_user.id)
+    end
   end
 
   def edit
@@ -21,7 +26,7 @@ class EmployeesController < ApplicationController
                         job_title: params[:job_title],
                         salary: params[:salary],
                         phone_number: params[:phone_number],
-                        gender: params[:gender], bio: params[:bio]
+                        gender: params[:gender], bio: params[:bio], user_id: [:current_user]
 
       })
 
@@ -31,6 +36,7 @@ class EmployeesController < ApplicationController
 
   def show
     @employee = Employee.find(params[:id])
+    @groups = @employee.groups
     
   end
 
@@ -51,7 +57,7 @@ class EmployeesController < ApplicationController
                         job_title: params[:job_title],
                         salary: params[:salary],
                         phone_number: params[:phone_number],
-                        gender: params[:gender], bio: params[:bio]
+                        gender: params[:gender], bio: params[:bio], user_id: [:current_user]
 
       })
 
@@ -59,5 +65,20 @@ class EmployeesController < ApplicationController
 
   end
 
-end
+  def address
+    address
 
+  end
+
+  def random
+    @employee = Employee.all.sample
+    
+    render :show
+  end
+
+  def search
+       @employees = Employee.where("first_name LIKE ? OR last_name LIKE ? OR email LIKE ? OR job_title LIKE ? OR salary LIKE ? OR phone_number LIKE ? OR gender LIKE ? OR middle_name LIKE ? OR bio LIKE ? ", "#{params[:search]}", "#{params[:search]}", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+
+    render :index
+  end
+end

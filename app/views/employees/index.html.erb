@@ -1,18 +1,17 @@
 </body>
-<h1>Strickland Propane</h1>
+
 <h1>Employee Directory</h1>
 <h4>Taste the meat, not the heat</h4>
 
 <h3><a href="employees/new">Create New</a></h3>
 <% @employees.each do |employee| %>
-  <h3><a href="/employees/<%= employee.id %>"><%= employee.full_name %></a></h3>
-  <h3><%= employee.email %></h3>
-  <h3><%= employee.job_title %></h3>
-  <h3><%= employee.salary %></h3>
-  <h3><%= employee.japan_prefix %></h3>
-  <h3><%= employee.gender %></h3>
-  <h3><%= employee.bio %></h3>
-  <h3><%= employee.updated_at %></h3>
+  <h3>Name: <a href="/employees/<%= employee.id %>"><%= employee.full_name %></a></h3>
+  <h3>Gender: <%= employee.gender %></h3>
+  <h3>Job Title: <%= employee.job_title %></h3>
+  <h3>Salary: <%= employee.salary %></h3>
+  <h3>Phone: <%= employee.japan_prefix %></h3>
+  <h3>Email: <%= employee.email %></h3>
+  <h3>Bio: <%= employee.bio %></h3>
+  <h3>Last updated: <%= employee.updated_at %></h3>
+  <h4>Updated by: </h4>
 <% end %>
-
-<!-- add bio entry -->

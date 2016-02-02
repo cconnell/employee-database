@@ -15,8 +15,8 @@
   <div>
     <%= label_tag :last_name %>
     <%= text_field_tag :last_name, @employee.last_name %>
-
   </div>
+
   <div>
     <%= label_tag :email %>
     <%= text_field_tag :email, @employee.email %>
@@ -43,10 +43,10 @@
   </div>
 
   <div>
-  <%= label_tag :bio %>
-  <%= text_area_tag :bio, @employee.bio %>
+    <%= label_tag :bio %>
+    <%= text_area_tag :bio, @employee.bio, size: "40x10" %>
   </div>
 
-    <%= submit_tag "Update employee record" %>
+  <%= submit_tag "Update employee record" %>
 
 <% end %>
